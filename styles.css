@@ -1,0 +1,17 @@
+.square_2{
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  left: 400px;
+  top: 400px;
+  background-color:rgb(255, 233, 36);
+}
+
+.square_1{
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background-color:rgb(255, 80, 80);
+  font-size: 1.5em;
+  z-index: 1;
+}
