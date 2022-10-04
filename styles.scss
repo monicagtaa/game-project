@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap");
+$font-body: "Roboto", sans-serif;
+$background-ocean: url("./images/ocean.PNG");
+$color-white: #fafafa;
+
+* {
+  background-color: $color-white;
+  margin: 0;
+  padding: 0px;
+  box-sizing: border;
+  font-family: $font-body;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+
+  .startGame {
+    margin: 30px;
+    margin-top: 10px;
+    padding: 3px;
+    background-color: aqua;
+  }
+}
+
+main {
+  width: 900px;
+  height: 900px;
+  border: 2px midnightblue solid;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute; // gives the playing container a position
+  top: 210px;
+  background-image: $background-ocean;
+  // visibility: hidden;
+
+  .octopus {
+    width: 100px;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  .treasures {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 400px;
+    top: 400px;
+    background-color: transparent;
+    // visibility: visible;
+    // background-color: goldenrod;
+  }
+
+  .treasures6{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 200px;
+    top: 700px;
+    background-color: transparent;
+    visibility: visible;
+    // background-color: goldenrod;
+  }
+}
+
+#move {
+  background-color: gold;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 5px solid #333;
+  outline: none;
+}
+
+#move:hover {
+  background-color: coral;
+}
+#move:active {
+  background-color: yellowgreen;
+}
+
+// rotate format
+
+.rotate {
+  animation: rotation 2s;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}

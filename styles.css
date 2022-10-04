@@ -1,1 +1,99 @@
-/*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap");
+* {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0px;
+  box-sizing: border;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+body .startGame {
+  margin: 30px;
+  margin-top: 10px;
+  padding: 3px;
+  background-color: aqua;
+}
+
+main {
+  width: 900px;
+  height: 900px;
+  border: 2px midnightblue solid;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 210px;
+  background-image: url("./images/ocean.PNG");
+}
+main .octopus {
+  width: 100px;
+  height: 100px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+}
+main .treasures {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 400px;
+  top: 400px;
+  background-color: transparent;
+}
+main .treasures6 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 200px;
+  top: 700px;
+  background-color: transparent;
+  visibility: visible;
+}
+
+#move {
+  background-color: gold;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 5px solid #333;
+  outline: none;
+}
+
+#move:hover {
+  background-color: coral;
+}
+
+#move:active {
+  background-color: yellowgreen;
+}
+
+.rotate {
+  -webkit-animation: rotation 2s;
+          animation: rotation 2s;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}/*# sourceMappingURL=styles.css.map */
