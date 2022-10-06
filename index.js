@@ -1,92 +1,80 @@
-// import {treasuresTouch} from "./collision.js";
+import { randomTreasures, arrow } from "./functions.js";
 
 const start = document.querySelector("main");
 const startButton = document.querySelector(".startGame");
-// startButton.addEventListener("click", () => {
-//   start.style.visibility = "visible"
-//   // document.body.innerHTML += `
-//   // <main>
-//   //     <img class="octopus" src= "./images/octopus-removebg.png">
-//   //     <img class="treasures" src= "./images/coin.png">
-//   //   </main>
-//   // `;
-// })
-
-const octopus = document.querySelectorAll(".octopus")[0];
-const octopusRotation = document.querySelectorAll(".rotation")[0];
-console.log(octopusRotation.style);
-const treasures = document.querySelectorAll(".treasures");
-console.log(treasures[1]);
 
 // set array of tresures & set the game with treasures-images
+const octopus = document.querySelectorAll(".octopus")[0];
+// console.log(octopus);
+const octopusRotation = document.querySelectorAll(".rotation")[0];
+const treasures = document.querySelectorAll(".treasures");
+console.log(treasures[0]);
 
-// Sablishing the center of the treasures & octopus
+// Sablishing the center of the octopus
 let octopusWidth = Number(getComputedStyle(octopus).width.split("px")[0]) / 2;
 let octopusHeight = Number(getComputedStyle(octopus).height.split("px")[0]) / 2;
-
-// Keep track of where the octopus is located (i.e., top & left #px )
-let octopusXLeft = 0;
 let octopusYTop = 0;
+let octopusXLeft = 0;
+let score = 0;
+let seconds = 15;
 
-// Set a timer and a score
-// let score = 0;
+// set treasure positions
+const min = 1; // treasure position needs to be away from the octopus
+// Grid is a square. The grid width divided by the width of the treasure
+const gridWidth = Number(getComputedStyle(start).width.split("px")[0]);
+const gridColumnSize = 25; // treasures width
 
-// Arrow movement= XLeft:Width & YTop:Height
+let number = randomTreasures(treasures.length * 2, min, gridWidth / gridColumnSize); //random number generator
 
-// const F = () => { function}
-// if timer === 0 move
-// if the treasure === 0
-
-const movement = (document.onkeydown = (e) => {
-  // for (let i = 0; i< treasures.length; i++) {
-    octopusRotation.style.transform = "rotate(0deg)";
-  if (e.key === "ArrowUp") {
-    console.log(`up arrow pressed: ${octopus.style.top} & YTop:${octopusYTop}`);
-    octopus.style.top = octopusYTop - octopusHeight + "px";
-    console.log(`after pressing up arrow, YTop= ${octopus.style.top}`);
-    // treasuresTouch();
-  } else if (e.key === "ArrowDown") {
-    console.log(
-      `down arrow pressed: ${octopus.style.top} & YTop:${octopusYTop}`
-    );
-    octopus.style.top = octopusYTop + octopusHeight + "px";
-    console.log(`after pressing down arrow: ${octopus.style.top}`);
-    // treasuresTouch();
-  } else if (e.key === "ArrowLeft") {
-    octopus.style.left = octopusXLeft - octopusWidth + "px";
-    // treasuresTouch();
-  } else if (e.key === "ArrowRight") {
-    octopus.style.left = octopusXLeft + octopusWidth + "px";
-    // treasuresTouch();
+// generate tresure positions
+startButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  for (let i = 0; i < treasures.length; i++) {
+    treasures[i].style.left = number.pop() * gridColumnSize + "px";
+    treasures[i].style.top = number.pop() * gridColumnSize + "px";
   }
-  octopusYTop = Number(getComputedStyle(octopus).top.split("px")[0]);
-  octopusXLeft = Number(getComputedStyle(octopus).left.split("px")[0]);
-  console.log(`XLeft= ${octopusXLeft}, YTop= ${octopusYTop}`);
-  octopus.style.top = octopusYTop + "px";
-  octopus.style.left = octopusXLeft + "px";
-  console.log("hola");
-  treasuresTouch();
 });
 
-// Collision: how to move to collision.js
+// Set a timer and a score,
+// - timer.start = start timer when arrow start play is clicked
+// - timer.Timeout= stop game once time reaches zero : no arrow movement
+// - timer.getTimeElapsed= oonce there are no more treasures stop timer
+// const F = () => { function}
+// if timer === 0
+// if the treasure === 0
 
+
+
+document.onkeydown = (e) => {
+  // octopusRotation.style.transform = "rotate(0deg)";
+
+  // Arrow movement= XLeft:Width & YTop:Height
+  arrow(e, octopusXLeft, octopusYTop, octopusWidth, octopusHeight, octopus);
+
+  // Get the octopus location after arrow movement
+  octopusYTop = Number(getComputedStyle(octopus).top.split("px")[0]);
+  octopusXLeft = Number(getComputedStyle(octopus).left.split("px")[0]);
+
+  // Apply the location (i.e., top & left) to octopus style
+  octopus.style.top = octopusYTop + "px";
+  octopus.style.left = octopusXLeft + "px";
+
+  treasuresTouch(); // check for collison
+};
+
+// Collision:
 const treasuresTouch = () => {
-  console.log(treasures.length);
+  // console.log(treasures.length);
   for (let i = 0; i < treasures.length; i++) {
-    console.log(`the touch has and i of: ${i}`);
+    // console.log(`the touch has and i of: ${i}`);
     let treasureWidth =
       Number(getComputedStyle(treasures[i]).width.split("px")[0]) / 2;
     let treasureHeight =
       Number(getComputedStyle(treasures[i]).height.split("px")[0]) / 2;
     let octopusXPos = Number(getComputedStyle(octopus).left.split("px")[0]); //octopusXLeft
     let octopusYPos = Number(getComputedStyle(octopus).top.split("px")[0]); // octopusYTop
-
-    let treasureXPos = Number(
-      getComputedStyle(treasures[i]).left.split("px")[0]
-    );
-    let treasureYPos = Number(
-      getComputedStyle(treasures[i]).top.split("px")[0]
-    );
+    let treasureXPos = Number(getComputedStyle(treasures[i]).left.split("px")[0]);
+    let treasureYPos = Number(getComputedStyle(treasures[i]).top.split("px")[0]);
 
     let leftCheck = octopusXPos + octopusWidth > treasureXPos - treasureWidth;
     let rightCheck = octopusXPos - octopusWidth < treasureXPos + treasureWidth;
@@ -95,31 +83,22 @@ const treasuresTouch = () => {
     let bottomCheck =
       octopusYPos - octopusHeight < treasureYPos + treasureHeight;
 
-    console.log(octopusXPos, octopusYPos, treasureXPos, treasureYPos);
-    console.log(leftCheck, rightCheck, topCheck, bottomCheck);
-
-    // console.log (octopusWidth, octopusHeight, treasuresWidth, treasuresHeight);
-
     if (leftCheck && rightCheck && topCheck && bottomCheck) {
       console.log(`hit: XLeft= ${octopusXPos}, YTop= ${octopusYPos}`);
-      // octopus.style.width = 200 + octopusWidth + "px";
-      // octopus.style.height = 200 + octopusHeight + "px";
-      console.log(octopusWidth, octopusHeight);
-      treasures[i].style.visibility = "hidden";
-      console.log(leftCheck, rightCheck, topCheck, bottomCheck);
-      octopusRotation.style.transform = "rotate(180deg)";
-
-      // .style.animationIterationCount = "4s"
+      let increase = Number(getComputedStyle(octopus).width.split("px")[0]);
+      octopus.style.width = 25 + increase + "px";
+      octopus.style.height = 25 + increase + "px";
+      increase += 25;
+      
+      treasures[i].remove(); // tresure touch disapears
+      // octopusRotation.style.transform = "rotate(180deg)";
     } else {
       treasures[i].style.border = "none";
-      // console.log(leftCheck, rightCheck, topCheck, bottomCheck);
-          console.log(`i have the touch else: ${i}`);
+      // console.log(`i have the touch else: ${i}`);
+    }
   }
-}
-return [octopus.style.width, octopus.style.height ]
+  return [octopus.style.width, octopus.style.height];
 };
-
-// array of treasure images
 
 // max size of player movements
 // const maxGrid = Number((getComputedStyle(main).width).split("px")[0])
