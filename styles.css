@@ -1,38 +1,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap");
 * {
-  background-color: #fafafa;
   margin: 0;
   padding: 0px;
   box-sizing: border;
   font-family: "Roboto", sans-serif;
+  background-color: snow;
 }
 
 body {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 5px;
 }
-body .startGame {
-  margin: 20px;
+body .startDisplay {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+}
+body .startDisplay #gameName {
+  color: midnightblue;
+  font-family: "Nova Flat";
+  font-size: 65px;
+}
+body .startButton {
+  height: 80px;
+  width: 110px;
   padding: 2px;
-  background-color: aqua;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background-color: slateblue;
+  border: 5px solid midnightblue;
+}
+body .rotateStart {
+  margin: 50px;
+  height: 250px;
+  width: 250px;
+  position: relative;
+  -webkit-animation: rotation 8s infinite linear;
+          animation: rotation 8s infinite linear;
+  background-color: transparent;
+}
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 main {
   width: 900px;
   height: 900px;
+  padding: 2px;
+  margin: 0 auto;
   border: 2px midnightblue solid;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  top: 210px;
+  top: 200px;
   background-image: url("./images/ocean.PNG");
+  background-size: cover;
+}
+main .timerDisplay {
+  display: flex;
+  flex-direction: row;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  padding: 0px 0px 0px 18px;
+  size: 20px;
+  font-weight: bolder;
+  justify-content: center;
+  align-items: left;
+  visibility: hidden;
+}
+main .timerDisplay #timer {
+  background-color: transparent;
+  margin-left: 2px;
 }
 main .octopus {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
+  align-items: center;
   top: 0px;
   left: 0px;
   position: absolute;
@@ -44,6 +106,8 @@ main .treasures {
   height: 25px;
   position: absolute;
   background-color: transparent;
+  left: -20px;
+  top: -20px;
 }
 main .treasure__position1 {
   left: -20px;
@@ -60,45 +124,4 @@ main .treasure__position5 {
 main .treasure__position6 {
   left: -20px;
   top: -20px;
-}
-
-#move {
-  background-color: gold;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: 5px solid #333;
-  outline: none;
-}
-
-#move:hover {
-  background-color: coral;
-}
-
-#move:active {
-  background-color: yellowgreen;
-}
-
-.rotate {
-  -webkit-animation: rotation 5s;
-          animation: rotation 5s;
-  background-color: transparent;
-}
-
-@-webkit-keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
 }/*# sourceMappingURL=styles.css.map */

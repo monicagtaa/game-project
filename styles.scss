@@ -4,42 +4,117 @@ $background-ocean: url("./images/ocean.PNG");
 $color-white: #fafafa;
 
 * {
-  background-color: $color-white;
   margin: 0;
   padding: 0px;
   box-sizing: border;
   font-family: $font-body;
+  background-color: snow;
 }
 
 body {
   display: flex;
   align-items: center;
-  // justify-content: center;
+  justify-content: center;
   flex-direction: column;
   padding: 5px;
 
-  .startGame {
-    margin: 20px;
+  .startDisplay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    
+
+    #gameName {
+      color: midnightblue;
+      font-family: "Nova Flat";
+      font-size: 65px;
+    }
+  }
+  .startButton {
+    height: 80px;
+    width: 110px;
     padding: 2px;
-    background-color: aqua;
+    border-radius: 30px;
+    box-sizing: border-box;
+     background-color: slateblue;
+    border: 5px solid midnightblue;
+
+    // .startButton:hover {
+    // background-color: coral;
+    // box-shadow: 0 0.4rem 1.4rem 0 goldenrod;
+    // }
+    }
+  // rotate format
+  .rotateStart {
+    margin: 50px;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    animation: rotation 8s infinite linear;
+    background-color: transparent;   
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
 }
 
 main {
+  // display: grid;
+
+  // flex-direction: column;
+  // align-items: left;
+  // justify-content: center;
+  // flex-direction: column;
   width: 900px;
   height: 900px;
+  padding: 2px;
+  margin: 0 auto;
+  // margin:50px
   border: 2px midnightblue solid;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute; // gives the playing container a position
-  top: 210px;
+  top: 200px;
   background-image: $background-ocean;
-  // visibility: hidden;
+  background-size: cover;
+
+  .timerDisplay {
+    display: flex;
+    flex-direction: row;
+    // text-align: right;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    padding: 0px 0px 0px 18px;
+    size: 20px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: left;
+    visibility: hidden;
+
+    #timer {
+      background-color: transparent;
+      margin-left: 2px;
+    }
+  
+  }
+
+  // .timerDisplay__number {
+  //   background-color: transparent;
+  // }
 
   .octopus {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
+    align-items: center;
     top: 0px;
     left: 0px;
     position: absolute;
@@ -51,10 +126,10 @@ main {
     height: 25px;
     position: absolute;
     background-color: transparent;
- 
-    
+    left: -20px;
+    top: -20px;
   }
-  .treasure__position1{
+  .treasure__position1 {
     left: -20px;
     top: -20px;
   }
@@ -69,38 +144,5 @@ main {
   .treasure__position6 {
     left: -20px;
     top: -20px;
-  }
-  
-}
-
-#move {
-  background-color: gold;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: 5px solid #333;
-  outline: none;
-}
-
-#move:hover {
-  background-color: coral;
-}
-#move:active {
-  background-color: yellowgreen;
-}
-
-// rotate format
-
-.rotate {
-  animation: rotation 5s;
-  background-color: transparent;
-}
-
-@keyframes rotation {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(359deg);
   }
 }
