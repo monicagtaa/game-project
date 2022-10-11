@@ -10,6 +10,7 @@ const octopus = document.querySelector(".octopus");
 const octopusRotation = document.querySelector(".octopus--rotation");
 const treasures = document.querySelectorAll(".treasures");
 const gameOverResult = document.getElementById ("endResult");
+const gameRules = document.getElementById ("gameRules");
 // console.log(gameOverResult.innerHTML)
 
 // -> -> Stablish octopus center and define game  variables:
@@ -36,6 +37,7 @@ let number = randomTreasures(treasures.length * 2, min, gridWidth / gridColumnSi
 startGame.addEventListener("click", (event) => {
   startGame.remove();
   treasureDisplay.remove();
+  gameRules.remove();
   gameDisplay.style.backgroundImage = "url('./images/ocean.PNG')";
   timeDisplay.style.visibility = "visible";
   event.preventDefault();

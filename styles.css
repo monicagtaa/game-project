@@ -26,16 +26,12 @@ body .startDisplay #gameName {
   font-family: "Nova Flat";
   font-size: 65px;
 }
-body .startButton {
-  height: 80px;
-  width: 110px;
-  padding: 2px;
-  border-radius: 30px;
-  box-sizing: border-box;
-  background-color: slateblue;
-  border: 5px solid midnightblue;
+body .buttonDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-body .restartButton {
+body .startButton {
   height: 80px;
   width: 110px;
   padding: 2px;

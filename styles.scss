@@ -32,18 +32,13 @@ body {
       font-size: 65px;
     }
   }
-
-  .startButton {
-    height: 80px;
-    width: 110px;
-    padding: 2px;
-    border-radius: 30px;
-    box-sizing: border-box;
-    background-color: slateblue;
-    border: 5px solid midnightblue;
+  .buttonDisplay{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .restartButton {
+  .startButton {
     height: 80px;
     width: 110px;
     padding: 2px;
