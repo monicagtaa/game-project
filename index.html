@@ -7,29 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game</title>
   <link rel="stylesheet" href="./styles.css" />
-  <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'> -->
 </head>
 
 <body>
   <div class="startDisplay">
     <h1 id="gameName">Treasure Hunt</h1>
-    <!-- <img class="rotateStart" src="./images/coin3.PNG" /> -->
-    <img class="startButton" src="./images/startButton.png" />
+    <div>
+      <img class="startButton" src="./images/startButton.png" />
+      <!-- <img class="restartButton" src="./images/restart2.png" /> -->
+      <h1 id="endResult"></h1>
+    </div>
   </div>
-   
-    <main class="gameDisplay">
-      
-      <p class="timerDisplay">TIME: <span id="timer">0</span></p>
-      <!-- <button id="playAgainButton" onclick="start()">Go!</button> -->
-      <img class="octopus rotation" src="./images/octopus.png" />
-      <img class="treasures treasure__position1" src="./images/coin.png" />
-      <img class="treasures treasure__position2" src="./images/coin2.png" />
-      <img class="treasures treasure__position5" src="./images/coin5.png" />
-      <img class="treasures treasure__position6" src="./images/coin6.png" />
 
-    </main>
+  <main class="gameDisplay">
+    <p class="timerDisplay">TIME: <span id="timer">0</span></p>
+    <img class="treasureStart treasureStart--rotation" src="./images/jar0.PNG" />
+    <img class="octopus octopus--rotation" src="./images/octopus.png" />
+    <img class="treasures" src="./images/coin0.png" />
+    <img class="treasures" src="./images/coin1.png" />
+    <!-- <img class="treasures" src="./images/coin2.png" />
+    <img class="treasures" src="./images/coin3.png" />
+    <img class="treasures" src="./images/coin2.png" />
+    <img class="treasures" src="./images/coin3.png" />
+    <img class="treasures" src="./images/dimond0.PNG" />
+    <img class="treasures" src="./images/dimond1.PNG" />
+    <img class="treasures" src="./images/dimond1.PNG" />
+    <img class="treasures" src="./images/dimond0.PNG" /> -->
+  </main>
 
-    <script type="module" src="./index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>

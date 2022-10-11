@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nova Flat");
 * {
   margin: 0;
   padding: 0px;
@@ -16,8 +17,8 @@ body {
 }
 body .startDisplay {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   padding: 5px;
 }
 body .startDisplay #gameName {
@@ -34,94 +35,104 @@ body .startButton {
   background-color: slateblue;
   border: 5px solid midnightblue;
 }
-body .rotateStart {
-  margin: 50px;
-  height: 250px;
-  width: 250px;
+body .restartButton {
+  height: 80px;
+  width: 110px;
+  padding: 2px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background-color: slateblue;
+  border: 5px solid midnightblue;
+}
+body .treasureStart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  top: 450px;
+  left: 450px;
+  position: absolute;
+  background-color: transparent;
+}
+body .treasureStart--rotation {
   position: relative;
-  -webkit-animation: rotation 8s infinite linear;
-          animation: rotation 8s infinite linear;
+  -webkit-animation: rotation 5s infinite;
+          animation: rotation 5s infinite;
   background-color: transparent;
 }
 @-webkit-keyframes rotation {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(359deg);
+  100% {
+    transform: rotate(360deg);
   }
 }
 @keyframes rotation {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(359deg);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-main {
-  width: 900px;
-  height: 900px;
+#endResult {
+  margin: 20px;
   padding: 2px;
-  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: gold;
+  border: 5px solid midnightblue;
+  visibility: hidden;
+}
+
+.gameDisplay {
+  width: 1200px;
+  height: 1200px;
+  margin: 0;
   border: 2px midnightblue solid;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
   top: 200px;
-  background-image: url("./images/ocean.PNG");
+  background-image: url("./images/startOcean.png");
   background-size: cover;
 }
-main .timerDisplay {
+.gameDisplay .timerDisplay {
   display: flex;
   flex-direction: row;
   width: 20px;
   height: 20px;
+  color: goldenrod;
   background-color: transparent;
-  padding: 0px 0px 0px 18px;
-  size: 20px;
+  padding: 0px 10px 10px 50px;
+  font-size: 30px;
   font-weight: bolder;
   justify-content: center;
   align-items: left;
   visibility: hidden;
 }
-main .timerDisplay #timer {
+.gameDisplay .timerDisplay #timer {
   background-color: transparent;
-  margin-left: 2px;
+  margin-left: 5px;
 }
-main .octopus {
-  width: 75px;
-  height: 75px;
-  align-items: center;
-  top: 0px;
-  left: 0px;
+.gameDisplay .octopus {
+  width: 125px;
+  height: 125px;
+  transform: translate3d(-500px, 0px, 0);
   position: absolute;
   background-color: transparent;
   z-index: 1;
 }
-main .treasures {
-  width: 25px;
-  height: 25px;
+.gameDisplay .treasures {
+  width: 50px;
+  height: 50px;
   position: absolute;
   background-color: transparent;
-  left: -20px;
-  top: -20px;
-}
-main .treasure__position1 {
-  left: -20px;
-  top: -20px;
-}
-main .treasure__position2 {
-  left: -20px;
-  top: -20px;
-}
-main .treasure__position5 {
-  left: -20px;
-  top: -20px;
-}
-main .treasure__position6 {
-  left: -20px;
-  top: -20px;
+  left: -40px;
+  top: -40px;
+  border-radius: 50%;
 }/*# sourceMappingURL=styles.css.map */
