@@ -18,7 +18,7 @@ let octopusHeight = Number(getComputedStyle(octopus).height.split("px")[0])/ 2;
 let octopusYPos = 0;
 let octopusXPos = 0;
 let tresureCount = 0;
-let sec = 5 + 1;
+let sec = 15 + 1;
 let timeInterval;
 let XYPos = []; 
 let gameOver = false;

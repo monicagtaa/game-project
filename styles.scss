@@ -19,7 +19,7 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 5px;
-
+  
   .startDisplay {
     display: flex;
     flex-direction: column;
@@ -90,9 +90,7 @@ body {
 
 #endResult{
   margin: 20px;
- 
   padding: 2px;
-  // border-radius: 30px;
   box-sizing: border-box;
   background-color: gold;
   border: 5px solid midnightblue;
